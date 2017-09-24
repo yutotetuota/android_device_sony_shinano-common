@@ -15,6 +15,9 @@
 # inherit from msm8974-common
 include device/sony/msm8974-common/BoardConfigCommon.mk
 
+# include shinano twrp configs
+include device/sony/shinano-common/twrp.mk
+
 TARGET_SPECIFIC_HEADER_PATH += device/sony/shinano-common/include
 
 # Platform
@@ -110,5 +113,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2671771648
 
 # Recovery
+TARGET_RECOVERY_DEVICE_MODULES += twrp.fstab
+TARGET_RECOVERY_DEVICE_DIRS += device/sony/shinano-common
 TARGET_RECOVERY_FSTAB := device/sony/shinano-common/rootdir/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
