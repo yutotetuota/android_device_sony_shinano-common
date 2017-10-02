@@ -28,9 +28,6 @@ on post-fs-data
     mkdir /data/tombstones/vendor 0775 system system
     mkdir /data/mediaserver 0740 media media
 
-    # Credmgrinit Log file
-    restorecon -R /cache/credmgr.log
-
 on early-boot
     # Run pre_hw_config.sh before entering charge only mode.
     exec /system/bin/sh /system/etc/pre_hw_config.sh
