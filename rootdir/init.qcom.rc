@@ -29,6 +29,8 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    export LD_SHIM_LIBS "/system/bin/credmgrd|libshims_signal.so:/system/bin/suntrold|libshims_signal.so"
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
