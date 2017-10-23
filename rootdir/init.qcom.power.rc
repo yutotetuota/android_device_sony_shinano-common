@@ -86,18 +86,8 @@ on enable-low-power
 
     write /sys/module/msm_thermal/core_control/enabled 1
 
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/sync_threshold 1728000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
 on boot
     trigger enable-low-power
-
-on property:init.svc.recovery=running
-    trigger enable-low-power
-    write /sys/class/android_usb/android0/idVendor 0FCE
-    write /sys/class/android_usb/android0/idProduct 6${ro.usb.pid_suffix}
 
 on property:dev.bootcomplete=1
     # Set max mA current for usb/dc charger
