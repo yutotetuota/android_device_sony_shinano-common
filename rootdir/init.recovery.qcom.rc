@@ -1,0 +1,5 @@
+import /init.qcom.power.rc
+import /init.sony.usb.rc
+
+on init
+    setprop sys.usb.config=mtp,adb
