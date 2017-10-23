@@ -356,14 +356,8 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # Create directory for TZ Apps
-    mkdir /data/misc/qsee 0770 system system
-
     # SONY: Create a dir on data partition not to be deleted during mr and wipedata
     mkdir /data/persist 0770 system system
-
-    # SONY: Create dir for Widevine keybox
-    mkdir /data/persist/wv 0700 system system
 
     # SONY: Create dir for marlin sdata
     mkdir /data/persist/marlin 0700 system system
@@ -371,8 +365,6 @@ on post-fs-data
     # SONY: Create a dir for pin-cache components
     mkdir /data/pc 0600 radio radio
     mkdir /cache/pc 0770 radio system
-
-    start wvkbd_installer
 
 on property:bluetooth.isEnabled=true
 #    start btwlancoex
@@ -398,11 +390,6 @@ service netmgrd /system/bin/netmgrd
 on property:ro.radio.noril=true
     stop ril-daemon
     stop netmgrd
-
-service qseecomd /system/bin/qseecomd
-    class core
-    user root
-    group drmrpc root
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \

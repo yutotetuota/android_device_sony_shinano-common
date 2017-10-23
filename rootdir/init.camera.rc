@@ -61,9 +61,6 @@ on post-fs-data
     mkdir /data/etc 0755 root shell
     exec -- /system/bin/taimport
 
-    # SONY: Create dir for Widevine keybox
-    mkdir /data/persist/wv 0700 system system
-
     # SONY: Camera
     mkdir /data/camera 0770 media camera
     chown media camera /sys/devices/sony_camera_0/info
@@ -120,19 +117,6 @@ service scd /system/bin/scd
     class late_start
     user system
     group system
-
-#service wvkbd_installer /system/bin/logwrapper /system/bin/wvkbd
-service wvkbd_installer /system/bin/wvkbd
-    user system
-    group system
-    oneshot
-    disabled
-
-# All services that use qseecomd daemon listeners should
-# start on sys.listeners.registered property to make sure that
-# all of its service listeners are registered before calling them
-on property:sys.listeners.registered=true
-    start wvkbd_installer
 
 #service qcamerasvr /system/bin/logwrapper /system/bin/mm-qcamera-daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
