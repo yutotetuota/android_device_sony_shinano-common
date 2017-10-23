@@ -250,6 +250,8 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
+    user root
+    group radio
 
 # Start sensors only once /data is ready
 on property:vold.post_fs_data_done=1
