@@ -28,10 +28,6 @@ on post-fs-data
     mkdir /data/tombstones/vendor 0775 system system
     mkdir /data/mediaserver 0740 media media
 
-on early-boot
-    # Run pre_hw_config.sh before entering charge only mode.
-    exec /system/bin/sh /system/etc/pre_hw_config.sh
-
 # CredentialManager initial boot patch script.
 service initcredmgr /system/bin/credmgrfirstboot.sh
     class late_start
