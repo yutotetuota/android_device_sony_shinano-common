@@ -84,7 +84,7 @@ on post-fs-data
 
     # SONY: Start early TA-users
     mkdir /data/etc 0755 root shell
-    exec /system/bin/taimport
+    exec /vendor/bin/taimport
 
     # SONY: Camera
     chown media camera /sys/devices/sony_camera_0/info
@@ -96,7 +96,7 @@ on post-fs-data
     mkdir /data/wfd 0770 system system
 
     # SONY: Import MiscTA to System properties
-    exec /system/bin/taimport property
+    exec /vendor/bin/taimport property
 
 on early-boot
     #SONY early boot
@@ -114,55 +114,55 @@ service tad_static /sbin/tad_static /dev/block/platform/msm_sdcc.1/by-name/TA 0,
 # tad_static is in rootfs, normal file_context does not work
     seclabel u:r:tad:s0
 
-service updatemiscta /system/bin/updatemiscta
+service updatemiscta /vendor/bin/updatemiscta
     class main
     user updatemiscta
     group trimarea
     oneshot
 
 # Trim Area QMI service
-service ta_qmi_service /system/bin/ta_qmi_service
+service ta_qmi_service /vendor/bin/ta_qmi_service
     user ta_qmi
     group ta_qmi trimarea system root net_raw wakelock
     disabled
 
 # Secure Config Transfer service
-service sct_service /system/bin/sct_service
+service sct_service /vendor/bin/sct_service
     user root
     disabled
 
 # Modem Log QMI service
-service mlog_qmi_service /system/bin/mlog_qmi_service
+service mlog_qmi_service /vendor/bin/mlog_qmi_service
     user root
     disabled
 
 # Thermal Manager service
-service thermanager /system/bin/thermanager /system/etc/thermanager.xml
+service thermanager /vendor/bin/thermanager /system/etc/thermanager.xml
     class main
     user root
     group root
 
 # Start suntrold
-service suntrold /system/bin/suntrold
+service suntrold /vendor/bin/suntrold
     class main
     user system
     group system
     oneshot
 
-service mpdecision /system/bin/mpdecision --avg_comp
+service mpdecision /vendor/bin/mpdecision --avg_comp
     class main
     user root
     group root readproc
     disabled
 
 # Start camera server daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
 
 # HexagonDSP FastRPC daemon
-service adsprpcd /system/bin/adsprpcd
+service adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media

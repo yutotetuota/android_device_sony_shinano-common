@@ -235,23 +235,23 @@ on post-fs-data
 on property:bluetooth.isEnabled=true
     write /sys/class/bluetooth/hci0/idle_timeout 7000
 
-service irsc_util /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth gps nfc diag wakelock qcom_diag
 
-service netmgrd /system/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group radio
@@ -260,7 +260,7 @@ service netmgrd /system/bin/netmgrd
 on property:vold.post_fs_data_done=1
     start sensors
 
-service sensors /system/bin/sensors.qcom
+service sensors /vendor/bin/sensors.qcom
     class main
     user root
     group root
@@ -287,7 +287,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service loc_launcher /system/bin/loc_launcher
+service loc_launcher /vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet net_raw qcom_diag net_admin wifi
@@ -296,7 +296,7 @@ service charger /charger
     class charger
     seclabel u:r:charger:s0
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
     class late_start
     user root
     group root
