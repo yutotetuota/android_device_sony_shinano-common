@@ -23,3 +23,27 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_32_BIT_ONLY := true
 include $(BUILD_SHARED_LIBRARY)
 
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := \
+    ui/GraphicBuffer.cpp \
+    ui/GraphicBufferAllocator.cpp \
+    ui/GraphicBufferMapper.cpp \
+    utils/Looper.cpp \
+    utils/VectorImpl.cpp
+LOCAL_C_INCLUDES := \
+    $(LOCAL_PATH)/include \
+    external/safe-iop/include \
+    system/core/libutils
+LOCAL_SHARED_LIBRARIES := \
+    libcutils \
+    libhardware \
+    liblog \
+    libui \
+    libsync \
+    libutils
+LOCAL_MODULE := libsony_graphicbuffer
+LOCAL_PROPRIETARY_MODULE := true
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+include $(BUILD_SHARED_LIBRARY)
+
