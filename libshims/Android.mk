@@ -17,7 +17,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := signal.c
-LOCAL_MODULE := libshims_signal
+LOCAL_MODULE := libsony_signal
 LOCAL_SHARED_LIBRARIES := libc
 LOCAL_MODULE_TAGS := optional
 LOCAL_32_BIT_ONLY := true

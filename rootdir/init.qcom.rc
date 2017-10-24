@@ -28,7 +28,7 @@ on init
     # Support legacy paths
     symlink /sdcard /storage/sdcard
 
-    export LD_SHIM_LIBS "/system/bin/credmgrd|libshims_signal.so:/system/bin/suntrold|libshims_signal.so"
+    export LD_SHIM_LIBS "/system/vendor/bin/credmgrd|libsony_signal.so:/system/vendor/bin/suntrold|libsony_signal.so:/system/lib/libcammw.so|libsensor.so:/system/lib/hw/camera.qcom.so|libsensor.so"
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
