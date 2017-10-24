@@ -158,3 +158,6 @@ $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339
 
 # Include non-opensource parts
 $(call inherit-product, vendor/sony/shinano-common/shinano-common-vendor.mk)
+
+# Include HIDL Interfaces
+$(call inherit-product, device/sony/shinano-common/HIDL.mk)
