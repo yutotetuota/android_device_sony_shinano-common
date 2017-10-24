@@ -92,6 +92,9 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor
+
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
