@@ -54,7 +54,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libsony_signal
+    libsony_signal \
+    libsony_graphicbuffer
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/sbin/tad_static:root/sbin/tad_static
