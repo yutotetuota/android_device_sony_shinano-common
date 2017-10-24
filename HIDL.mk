@@ -10,9 +10,11 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
     camera.device@1.0-impl
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_treble=true
 
 # Display
 PRODUCT_PACKAGES += \
