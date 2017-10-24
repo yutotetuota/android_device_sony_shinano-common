@@ -21,7 +21,4 @@
 #define BTM_WBS_INCLUDED TRUE
 #define BTIF_HF_WBS_PREFERRED TRUE
 
-/* Use only AVRCP 1.4 */
-#define SDP_AVRCP_1_5   FALSE
-
 #endif
