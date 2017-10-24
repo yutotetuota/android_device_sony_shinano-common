@@ -28,6 +28,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl
 
+# Dumpstate
+PRODUCT_PACKAGES += \
+    android.hardware.dumpstate@1.0-service.sony
+
 # FM Radio
 PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl
