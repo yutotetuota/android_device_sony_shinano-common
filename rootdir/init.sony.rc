@@ -50,18 +50,23 @@ service credmgrd /system/bin/credmgrd
 service audioserver /system/bin/audioserver
     class main
     user audioserver
-    group audio trimarea camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct qcom_diag
+    group audio trimarea camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
+    onrestart restart audio-hal-2-0
 
 service drm /system/bin/drmserver
     class main
     user drm
-    group drm system inet drmrpc trimarea credmgr_client
+    group drm system inet drmrpc readproc trimarea credmgr_client
+    writepid /dev/cpuset/foreground/tasks
 
 service media /system/bin/mediaserver
     class main
     user media
     group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm tad trimarea system credmgr_client
     ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     # SONY: restart qcamerasvr
     onrestart restart qcamerasvr
 
@@ -69,4 +74,6 @@ service mediadrm /system/bin/mediadrmserver
     class main
     user media
     group mediadrm drmrpc trimarea
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks
 
