@@ -98,8 +98,8 @@ WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
 
 # NFC
+BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 BOARD_NFC_CHIPSET := pn547
-BOARD_NFC_DEVICE := /dev/pn547
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
