@@ -8,6 +8,8 @@ init_daemon_domain(credmgrd);
 
 #credmgrd self
 allow credmgrd self:socket create_socket_perms;
+allowxperm credmgrd self:socket ioctl msm_sock_ipc_ioctls;
+
 allow credmgrd self:file rw_file_perms;
 allow credmgrd self:dir rw_file_perms;
 allow credmgrd self:fifo_file rw_file_perms;
@@ -38,10 +40,10 @@ allow credmgrd tee_device:chr_file rw_file_perms;
 
 #credmgrd suntrold
 allow credmgrd suntrold:unix_stream_socket connectto;
-allow credmgrd suntrold_sock_socket:dir search;
-allow credmgrd suntrold_sock_socket:unix_dgram_socket sendto;
-allow credmgrd suntrold_sock_socket:unix_stream_socket connectto;
-allow credmgrd suntrold_sock_socket:sock_file write;
+allow credmgrd suntrold_socket:dir search;
+allow credmgrd suntrold_socket:unix_dgram_socket sendto;
+allow credmgrd suntrold_socket:unix_stream_socket connectto;
+allow credmgrd suntrold_socket:sock_file write;
 
 #credmgrd iddd
 allow credmgrd iddd:unix_dgram_socket sendto;
@@ -75,3 +77,5 @@ allow credmgrd init:unix_stream_socket connectto;
 
 allow credmgrd toolbox_exec:file { execute execute_no_trans getattr open read };
 
+# Android O
+allow credmgrd firmware_file:file { read open getattr };

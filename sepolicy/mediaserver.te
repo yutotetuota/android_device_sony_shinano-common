@@ -24,3 +24,6 @@ allow mediaserver sysfs:file write;
 allow mediaserver sysfs_battery_supply:dir search;
 allow mediaserver sysfs_battery_supply:file { getattr open read };
 
+# Android O
+allow mediaserver mm-qcamerad:unix_dgram_socket sendto;
+
