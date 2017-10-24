@@ -12,8 +12,8 @@ on init
     setprop ro.bluetooth.hfp.ver 1.6
 
     # SONY: for Bluesleep
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
-    chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
+    chown bluetooth bluetooth /proc/bluetooth/sleep/lpm
+    chown bluetooth bluetooth /proc/bluetooth/sleep/btwrite
 
     # Disable Bluetooth A2DP SNK
     setprop bluetooth.a2dp.sink.enabled false
