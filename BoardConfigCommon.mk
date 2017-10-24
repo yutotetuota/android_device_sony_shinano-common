@@ -70,6 +70,9 @@ BOARD_LIB_DUMPSTATE := libdumpstate.sony
 # GPS
 TARGET_PROVIDES_GPS_LOC_API := true
 
+# HIDL
+DEVICE_MANIFEST_FILE := device/sony/shinano-common/configs/manifest.xml
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_shinano
 
