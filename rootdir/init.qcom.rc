@@ -172,6 +172,9 @@ on boot
     chmod 0644 /sys/class/power_supply/battery/voltage_min
     chmod 0644 /sys/class/power_supply/usb/current_max
 
+    # Permission for vibrator service
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
+
 on fs
     # Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
